@@ -1,0 +1,12 @@
+main: com.nz1337.nprotect.launcher.Launcher
+name: nProtect
+version: 1.0.0
+author: Najtt
+commands:
+  protect:
+    aliases: [security, nprotect, protection]
+    description: Main command of nProtect
+  pin:
+    description: Secure accounts with pin
+  mapscanner:
+    description: Scan the map
