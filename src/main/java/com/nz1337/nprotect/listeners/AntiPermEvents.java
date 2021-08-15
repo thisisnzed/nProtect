@@ -59,6 +59,6 @@ public class AntiPermEvents implements Listener {
     }
 
     private boolean hasDeniedPermission(Player player) {
-        return permissions.stream().anyMatch(player::hasPermission);
+        return this.permissions.stream().anyMatch(player::hasPermission);
     }
 }
