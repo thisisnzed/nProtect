@@ -19,9 +19,10 @@ You can reuse nProtect but make sure you comply with the [LICENSE](https://githu
 </dependencies>
 ```
 
-## Dependencies
+## Librairies
 
 * **EasySQL** : https://github.com/thisisnzed/EasySQL
+* **Bukkit** : https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/bukkit/bukkit/1.8-R0.1-SNAPSHOT/
 
 ## Features
 
@@ -59,7 +60,7 @@ In the configuration, you can decide to kick the player if he types the wrong PI
 
 ```yaml
 # Kick the player if he use the wrong code
-kickBadPin true
+kickBadPin: true
 ```
 
 ### **MAP SCANNER**
