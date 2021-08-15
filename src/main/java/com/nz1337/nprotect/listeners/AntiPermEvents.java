@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
-import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.util.ArrayList;
 
@@ -60,9 +59,6 @@ public class AntiPermEvents implements Listener {
     }
 
     private boolean hasDeniedPermission(Player player) {
-        for (String perm : permissions)
-            for (PermissionAttachmentInfo effectivePermission : player.getEffectivePermissions())
-                if (perm.equalsIgnoreCase(effectivePermission.getPermission())) return true;
-        return false;
+        return permissions.stream().anyMatch(player::hasPermission);
     }
 }
