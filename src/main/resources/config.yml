@@ -8,8 +8,8 @@
 # SQL database
 host: "127.0.0.1"
 port: 3306
-user: "yukihira"
-password: "7dz7d07z8d4a09x4ax4098LDOqadzlm"
+user: "root"
+password: "password"
 database: "nsecurity"
 
 #   _____             .___    .__
