@@ -19,9 +19,10 @@ You can reuse nProtect but make sure you comply with the [LICENSE](https://githu
 </dependencies>
 ```
 
-## Dependencies
+## Librairies
 
 * **EasySQL** : https://github.com/thisisnzed/EasySQL
+* **Bukkit** : https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/bukkit/bukkit/1.8-R0.1-SNAPSHOT/
 
 ## Features
 
@@ -59,7 +60,7 @@ In the configuration, you can decide to kick the player if he types the wrong PI
 
 ```yaml
 # Kick the player if he use the wrong code
-kickBadPin true
+kickBadPin: true
 ```
 
 ### **MAP SCANNER**
@@ -83,7 +84,7 @@ scanItems:
   - "EGG"
 ```
 
-### **IP per account**
+### **IP PER ACCOUNT**
 
 With "IP per account", you can **authorize ONE IP address per player**.
 
@@ -98,7 +99,7 @@ accountsWithIp:
   - "player2;192.168.1.1"
 ```
 
-### **AntiCommands**
+### **ANTICOMMANDS**
 
 This module allows you to **disable** certain **in-game commands**. Please note that they will always be **executable on the console**.
 
@@ -132,7 +133,7 @@ antiCommandsList:
   - "plugman reload nprotect"
 ```
 
-### **AntiGamemode**
+### **ANTIGAMEMODE**
 
 If your server only supports one GameMode, this module is very useful. Indeed, it allows to detect all the players being in another GameMode.
 
@@ -155,7 +156,7 @@ bypassGamemodePlayers:
   - "player2"
 ```
 
-### **AntiOP**
+### **ANTIOP**
 
 This module **constantly checks** whether a player **(connected or not)** is **abnormally operator**.
 
@@ -179,11 +180,11 @@ bypassOpPlayers:
   - "player2"
 ```
 
-### **AntiUUIDSpoof**
+### **ANTIUUIDSPOOF**
 
 No configuration is available for this module because it **only kicks the player** trying to **change their UUID**.
 
-### **AntiPermissions**
+### **ANTIPERMISSIONS**
 
 For **each action** (join, quit, send message, execute command etc...), **the plugin** will check that the player does not have any of the **permissions listed in the configuration**.
 
@@ -207,7 +208,7 @@ permissionsDenied:
   - "op"
 ```
 
-### **IPWhitelist**
+### **IPWHITELIST**
 
 If you have a **bungeecord server**, this is the perfect solution to **block "Bungee Exploit"** type **attacks** aimed at connecting by the **ports** of the **Spigot servers**.
 
