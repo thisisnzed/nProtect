@@ -7,7 +7,7 @@ public class TaskManager {
 
     private final Protect protect;
 
-    public TaskManager(Protect protect) {
+    public TaskManager(final Protect protect) {
         this.protect = protect;
         this.startTasks();
     }

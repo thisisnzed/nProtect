@@ -13,17 +13,17 @@ public class IPWhitelistEvents implements Listener {
 
     private final ArrayList<String> addresses;
 
-    public IPWhitelistEvents(Protect protect) {
+    public IPWhitelistEvents(final Protect protect) {
         this.addresses = new ArrayList<>();
         this.addresses.addAll(protect.getSettings().getWhitelistedIps());
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onPlayerLogin(PlayerLoginEvent event) {
-        if (!isValidAddress(event.getRealAddress().getHostAddress())) event.disallow(PlayerLoginEvent.Result.KICK_BANNED, Lang.IPWHITELIST_KICK.get());
+    public void onPlayerLogin(final PlayerLoginEvent event) {
+        if (!this.isValidAddress(event.getRealAddress().getHostAddress())) event.disallow(PlayerLoginEvent.Result.KICK_BANNED, Lang.IPWHITELIST_KICK.get());
     }
 
-    private boolean isValidAddress(String address) {
+    private boolean isValidAddress(final String address) {
         return this.addresses.contains(address);
     }
 }

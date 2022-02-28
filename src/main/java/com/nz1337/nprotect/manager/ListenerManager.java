@@ -12,7 +12,7 @@ public class ListenerManager {
     private final Protect protect;
     private final ArrayList<Listener> listeners;
 
-    public ListenerManager(Protect protect) {
+    public ListenerManager(final Protect protect) {
         this.protect = protect;
         this.listeners = new ArrayList<>();
         this.addAllListeners();
@@ -30,7 +30,7 @@ public class ListenerManager {
         this.listeners.add(new DataEvents(this.protect));
     }
 
-    private void registerListeners(Launcher launcher) {
-        listeners.forEach(listener -> launcher.getServer().getPluginManager().registerEvents(listener, launcher));
+    private void registerListeners(final Launcher launcher) {
+        this.listeners.forEach(listener -> launcher.getServer().getPluginManager().registerEvents(listener, launcher));
     }
 }

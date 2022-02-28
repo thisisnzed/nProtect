@@ -15,7 +15,7 @@ public enum FileManager {
     private final String fileName;
     private final File dataFolder;
 
-    FileManager(String fileName) {
+    FileManager(final String fileName) {
         this.fileName = fileName;
         this.dataFolder = instance.getDataFolder();
     }
@@ -24,7 +24,7 @@ public enum FileManager {
         return new File(dataFolder, fileName);
     }
 
-    public void create(Logger logger) {
+    public void create(final Logger logger) {
         if (fileName == null || fileName.isEmpty()) {
             throw new IllegalArgumentException("ResourcesPath cannot be null or empty");
         }
@@ -51,8 +51,8 @@ public enum FileManager {
                     logger.severe("Unable to copy file");
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (final IOException exception) {
+            exception.printStackTrace();
         }
 
     }
@@ -61,11 +61,11 @@ public enum FileManager {
         return YamlConfiguration.loadConfiguration(getFile());
     }
 
-    public void save(FileConfiguration fileConfiguration) {
+    public void save(final FileConfiguration fileConfiguration) {
         try {
             fileConfiguration.save(getFile());
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (final IOException exception) {
+            exception.printStackTrace();
         }
     }
 

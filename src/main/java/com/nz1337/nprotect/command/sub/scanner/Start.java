@@ -23,7 +23,7 @@ public class Start extends SubCommandManager {
     private final Launcher launcher;
     private final ArrayList<Material> materials;
 
-    public Start(Protect protect) {
+    public Start(final Protect protect) {
         this.settings = protect.getSettings();
         this.launcher = protect.getLauncher();
         this.materials = new ArrayList<>();
@@ -31,7 +31,7 @@ public class Start extends SubCommandManager {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (!sender.hasPermission("protect.admin")) {
             sender.sendMessage(Lang.COMMAND_NO_PERMISSION.get());
             return;
@@ -40,7 +40,7 @@ public class Start extends SubCommandManager {
         final ArrayList<Player> players = new ArrayList<>();
         final ArrayList<Chest> chests = new ArrayList<>();
         Bukkit.getScheduler().runTaskAsynchronously(this.launcher, () -> {
-            if (settings.isScanChests()) {
+            if (this.settings.isScanChests()) {
                 final World world = (sender instanceof Player) ? ((Player) sender).getWorld() : Bukkit.getWorlds().get(0);
                 Arrays.stream(world.getLoadedChunks()).forEach(chunk -> Arrays.stream(chunk.getTileEntities()).filter(blockState -> blockState instanceof Chest).forEach(blockState -> {
                     final Chest chest = (Chest) blockState;
@@ -53,7 +53,7 @@ public class Start extends SubCommandManager {
                     });
                 }));
             }
-            if (settings.isScanInventories()) {
+            if (this.settings.isScanInventories()) {
                 Bukkit.getOnlinePlayers().forEach(player -> Arrays.stream(player.getInventory().getContents()).filter(Objects::nonNull).filter(itemStack -> this.materials.contains(itemStack.getType())).forEach(itemStack -> {
                     if (!players.contains(player)) {
                         sender.sendMessage(Lang.MAP_SCANNER_FOUND_PLAYER.get().replace("%player%", player.getName()).replace("%material%", itemStack.getType().name()));

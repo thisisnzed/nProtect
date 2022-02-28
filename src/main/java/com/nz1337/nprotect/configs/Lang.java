@@ -14,7 +14,7 @@ public enum Lang {
     private static final Map<Lang, String> values = new HashMap<>();
 
     static {
-        for (Lang lang : values()) values.put(lang, lang.getFromFile());
+        for (final Lang lang : values()) values.put(lang, lang.getFromFile());
     }
 
     public String get() {

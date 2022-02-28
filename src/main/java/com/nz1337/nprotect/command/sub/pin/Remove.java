@@ -12,12 +12,12 @@ public class Remove extends SubCommandManager {
 
     private final Column column;
 
-    public Remove(Column column) {
+    public Remove(final Column column) {
         this.column = column;
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (!sender.hasPermission("protect.admin")) {
             sender.sendMessage(Lang.COMMAND_NO_PERMISSION.get());
             return;

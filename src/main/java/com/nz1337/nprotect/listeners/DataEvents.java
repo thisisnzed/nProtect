@@ -12,17 +12,17 @@ public class DataEvents implements Listener {
 
     private final Protect protect;
 
-    public DataEvents(Protect protect) {
+    public DataEvents(final Protect protect) {
         this.protect = protect;
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onJoin(PlayerJoinEvent event) {
+    public void onJoin(final PlayerJoinEvent event) {
         this.protect.userData.add(new UserData(event.getPlayer()));
     }
 
     @EventHandler
-    public void onQuit(PlayerQuitEvent event) {
+    public void onQuit(final PlayerQuitEvent event) {
         this.protect.getUserManager().delete(event.getPlayer());
     }
 }

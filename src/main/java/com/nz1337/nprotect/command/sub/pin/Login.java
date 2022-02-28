@@ -13,13 +13,13 @@ public class Login extends SubCommandManager {
     private final Column column;
     private final Protect protect;
 
-    public Login(Column column, Protect protect) {
+    public Login(final Column column, final Protect protect) {
         this.column = column;
         this.protect = protect;
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (!sender.hasPermission("protect.admin")) {
             sender.sendMessage(Lang.COMMAND_NO_PERMISSION.get());
             return;
@@ -53,10 +53,10 @@ public class Login extends SubCommandManager {
         userData.setLoginWaiting(false);
     }
 
-    private boolean isInteger(String potential) {
+    private boolean isInteger(final String potential) {
         try {
             Integer.parseInt(potential);
-        } catch (NumberFormatException | NullPointerException e) {
+        } catch (final NumberFormatException | NullPointerException ignored) {
             return false;
         }
         return true;

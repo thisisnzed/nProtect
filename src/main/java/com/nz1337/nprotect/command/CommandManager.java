@@ -27,7 +27,7 @@ public class CommandManager implements CommandExecutor {
     private final Launcher launcher;
     private final Column column;
 
-    public CommandManager(Protect protect) {
+    public CommandManager(final Protect protect) {
         this.protect = protect;
         this.launcher = protect.getLauncher();
         this.column = protect.getDatabaseManager().getColumn();
@@ -48,11 +48,11 @@ public class CommandManager implements CommandExecutor {
         }
     }
 
-    private void addExecutor(String command) {
+    private void addExecutor(final String command) {
         this.launcher.getCommand(command).setExecutor(this);
     }
 
-    public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+    public boolean onCommand(final CommandSender sender, final Command command, final String s, final String[] args) {
         if (sender.hasPermission("protect.staff") || sender.hasPermission("protect.admin")) {
             switch (command.getName().toLowerCase()) {
                 case "pin": {
@@ -60,7 +60,7 @@ public class CommandManager implements CommandExecutor {
                         Lang.COMMAND_HELP_PIN.getList().forEach(e -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&', e)));
                         return true;
                     }
-                    SubCommandManager target = this.get(args[0], this.pinSub);
+                    final SubCommandManager target = this.get(args[0], this.pinSub);
                     if (target == null) {
                         sender.sendMessage(Lang.COMMAND_UNKNOWN_SUBCOMMAND.get());
                         return true;
@@ -68,8 +68,8 @@ public class CommandManager implements CommandExecutor {
                     new ArrayList<>(Arrays.asList(args)).remove(0);
                     try {
                         target.execute(sender, args);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (final Exception exception) {
+                        exception.printStackTrace();
                     }
                     break;
                 }
@@ -78,7 +78,7 @@ public class CommandManager implements CommandExecutor {
                         Lang.COMMAND_HELP_PROTECT.getList().forEach(e -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&', e)));
                         return true;
                     }
-                    SubCommandManager target = this.get(args[0], this.mainSub);
+                    final SubCommandManager target = this.get(args[0], this.mainSub);
                     if (target == null) {
                         sender.sendMessage(Lang.COMMAND_UNKNOWN_SUBCOMMAND.get());
                         return true;
@@ -86,8 +86,8 @@ public class CommandManager implements CommandExecutor {
                     new ArrayList<>(Arrays.asList(args)).remove(0);
                     try {
                         target.execute(sender, args);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (final Exception exception) {
+                        exception.printStackTrace();
                     }
                     break;
                 }
@@ -96,7 +96,7 @@ public class CommandManager implements CommandExecutor {
                         Lang.COMMAND_HELP_SCANNER.getList().forEach(e -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&', e)));
                         return true;
                     }
-                    SubCommandManager target = this.get(args[0], this.scannerSub);
+                    final SubCommandManager target = this.get(args[0], this.scannerSub);
                     if (target == null) {
                         sender.sendMessage(Lang.COMMAND_UNKNOWN_SUBCOMMAND.get());
                         return true;
@@ -104,8 +104,8 @@ public class CommandManager implements CommandExecutor {
                     new ArrayList<>(Arrays.asList(args)).remove(0);
                     try {
                         target.execute(sender, args);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (final Exception exception) {
+                        exception.printStackTrace();
                     }
                     break;
                 }

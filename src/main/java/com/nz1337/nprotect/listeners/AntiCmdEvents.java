@@ -12,20 +12,20 @@ public class AntiCmdEvents implements Listener {
 
     private final ArrayList<String> commands;
 
-    public AntiCmdEvents(Protect protect) {
+    public AntiCmdEvents(final Protect protect) {
         this.commands = new ArrayList<>();
         this.commands.addAll(protect.getSettings().getAntiCommandsList());
     }
 
     @EventHandler
-    public void onCommand(PlayerCommandPreprocessEvent event) {
+    public void onCommand(final PlayerCommandPreprocessEvent event) {
         if (this.isConcerned(event.getMessage())) {
             event.setCancelled(true);
             event.getPlayer().sendMessage(Lang.COMMAND_ONLY_CONSOLE.get());
         }
     }
 
-    private boolean isConcerned(String command) {
+    private boolean isConcerned(final String command) {
         return this.commands.contains("/" + command.toLowerCase());
     }
 }

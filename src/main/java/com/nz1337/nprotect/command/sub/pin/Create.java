@@ -12,12 +12,12 @@ public class Create extends SubCommandManager {
 
     private final Column column;
 
-    public Create(Column column) {
+    public Create(final Column column) {
         this.column = column;
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (!sender.hasPermission("protect.admin")) {
             sender.sendMessage(Lang.COMMAND_NO_PERMISSION.get());
             return;
@@ -50,10 +50,10 @@ public class Create extends SubCommandManager {
         sender.sendMessage(Lang.PIN_CREATE_SUCCESS.get().replace("%pin%", String.valueOf(pin)).replace("%player%", playerName));
     }
 
-    private boolean isInteger(String potential) {
+    private boolean isInteger(final String potential) {
         try {
             Integer.parseInt(potential);
-        } catch (NumberFormatException | NullPointerException e) {
+        } catch (final NumberFormatException | NullPointerException ignored) {
             return false;
         }
         return true;

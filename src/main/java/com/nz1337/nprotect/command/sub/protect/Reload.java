@@ -11,12 +11,12 @@ public class Reload extends SubCommandManager {
 
     private final Launcher launcher;
 
-    public Reload(Launcher launcher) {
+    public Reload(final Launcher launcher) {
         this.launcher = launcher;
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (!sender.hasPermission("protect.admin")) {
             sender.sendMessage(Lang.COMMAND_NO_PERMISSION.get());
             return;

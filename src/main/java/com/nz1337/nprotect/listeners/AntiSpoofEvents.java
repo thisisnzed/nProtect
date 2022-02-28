@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 public class AntiSpoofEvents implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onPlayerLogin(PlayerLoginEvent event) {
+    public void onPlayerLogin(final PlayerLoginEvent event) {
         final Player player = event.getPlayer();
         if (!Bukkit.getOfflinePlayer(player.getName()).getUniqueId().equals(player.getUniqueId()))
             event.disallow(PlayerLoginEvent.Result.KICK_BANNED, Lang.UUIDSPOOF_KICK.get());

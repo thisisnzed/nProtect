@@ -4,5 +4,5 @@ public interface Launch {
 
     void shutdown();
 
-    void launch(Launcher launcher, ClassLoader classLoader);
+    void launch(final Launcher launcher, final ClassLoader classLoader);
 }

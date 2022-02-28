@@ -16,12 +16,12 @@ public class PinEvents implements Listener {
     private final Protect protect;
     private final String message = Lang.PIN_NOT_CONNECTED.get();
 
-    public PinEvents(Protect protect) {
+    public PinEvents(final Protect protect) {
         this.protect = protect;
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onJoin(final PlayerJoinEvent event) {
         final Player player = event.getPlayer();
         this.protect.userData.add(new UserData(player));
         final UserData userData = this.protect.getUserManager().getUserData(player);
@@ -32,7 +32,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onPlace(BlockPlaceEvent event) {
+    public void onPlace(final BlockPlaceEvent event) {
         final Player player = event.getPlayer();
         if (!this.hasPin(player) || this.isLogged(player)) return;
         event.setCancelled(true);
@@ -40,7 +40,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onBreak(BlockBreakEvent event) {
+    public void onBreak(final BlockBreakEvent event) {
         final Player player = event.getPlayer();
         if (!this.hasPin(player) || this.isLogged(player)) return;
         event.setCancelled(true);
@@ -48,7 +48,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onChat(AsyncPlayerChatEvent event) {
+    public void onChat(final AsyncPlayerChatEvent event) {
         final Player player = event.getPlayer();
         if (this.isLogged(player) || !this.hasPin(player) || event.getMessage().toLowerCase().startsWith("/pin login"))
             return;
@@ -57,7 +57,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
+    public void onInventoryClick(final InventoryClickEvent event) {
         final Player player = (Player) event.getWhoClicked();
         if (!this.hasPin(player) || this.isLogged(player)) return;
         event.setCancelled(true);
@@ -65,7 +65,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onCommand(PlayerCommandPreprocessEvent event) {
+    public void onCommand(final PlayerCommandPreprocessEvent event) {
         final Player player = event.getPlayer();
         if (this.isLogged(player) || !this.hasPin(player) || event.getMessage().toLowerCase().startsWith("/pin login"))
             return;
@@ -74,7 +74,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onDrop(PlayerDropItemEvent event) {
+    public void onDrop(final PlayerDropItemEvent event) {
         final Player player = event.getPlayer();
         if (!this.hasPin(player) || this.isLogged(player)) return;
         event.setCancelled(true);
@@ -82,7 +82,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onChangeItem(PlayerItemHeldEvent event) {
+    public void onChangeItem(final PlayerItemHeldEvent event) {
         final Player player = event.getPlayer();
         if (!this.hasPin(player) || this.isLogged(player)) return;
         event.setCancelled(true);
@@ -90,7 +90,7 @@ public class PinEvents implements Listener {
     }
 
     @EventHandler
-    public void onMove(PlayerMoveEvent event) {
+    public void onMove(final PlayerMoveEvent event) {
         final Player player = event.getPlayer();
         if (this.isLogged(player) || !this.hasPin(player) || (event.getTo().getBlockX() == event.getFrom().getBlockX() && event.getTo().getBlockZ() == event.getFrom().getBlockZ()))
             return;
@@ -98,11 +98,11 @@ public class PinEvents implements Listener {
         player.sendMessage(this.message);
     }
 
-    private boolean isLogged(Player player) {
+    private boolean isLogged(final Player player) {
         return !this.protect.getUserManager().getUserData(player).isLoginWaiting();
     }
 
-    private boolean hasPin(Player player) {
+    private boolean hasPin(final Player player) {
         return this.protect.getDatabaseManager().getColumn().isExists("uuid", player.getUniqueId().toString());
     }
 }

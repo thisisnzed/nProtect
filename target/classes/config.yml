@@ -1,0 +1,199 @@
+#________          __        ___.
+#\______ \ _____ _/  |______ \_ |__ _____    ______ ____
+# |    |  \\__  \\   __\__  \ | __ \\__  \  /  ___// __ \
+# |    `   \/ __ \|  |  / __ \| \_\ \/ __ \_\___ \\  ___/
+#/_______  (____  /__| (____  /___  (____  /____  >\___  >
+#        \/     \/          \/    \/     \/     \/     \/
+
+# SQL database
+host: "127.0.0.1"
+port: 3306
+user: "yukihira"
+password: "7dz7d07z8d4a09x4ax4098LDOqadzlm"
+database: "nsecurity"
+
+#   _____             .___    .__
+#  /     \   ____   __| _/_ __|  |   ____   ______
+# /  \ /  \ /  _ \ / __ |  |  \  | _/ __ \ /  ___/
+#/    Y    (  <_> ) /_/ |  |  /  |_\  ___/ \___ \
+#\____|__  /\____/\____ |____/|____/\___  >____  >
+#        \/            \/               \/     \/
+
+# Prevent connections with a modified UUID
+antiUuidSpoofer: true
+# Enable the PIN system for staff members (permission required: security.staff)
+pinStaff: true
+# If your server is running under a proxy such as BungeeCord, enable this option.
+ipWhitelist: true
+# Prohibits players from being OP if they are not in the allowed list
+antiOp: true
+# Prohibits players from having certain permissions if they are not in the allowed list
+antiPermissions: true
+# Prohibits players from being in another GameMode than the default one if they are not in the allowed list
+antiGamemode: true
+# Enable the command "/mapscanner" to scan the world and each player's inventory
+mapScanner: true
+# Activate certain commands that can only be executed on the console
+antiCommands: true
+# Enable IP per account for staff accounts
+ipPerAccount: true
+
+#__________.__           _________ __          _____  _____
+#\______   \__| ____    /   _____//  |______ _/ ____\/ ____\
+# |     ___/  |/    \   \_____  \\   __\__  \\   __\\   __\
+# |    |   |  |   |  \  /        \|  |  / __ \|  |   |  |
+# |____|   |__|___|  / /_______  /|__| (____  /__|   |__|
+#                  \/          \/           \/
+
+# Kick the player if he use the wrong code
+kickBadPin: true
+
+#   _____                    _________
+#  /     \ _____  ______    /   _____/ ____ _____    ____   ____   ___________
+# /  \ /  \\__  \ \____ \   \_____  \_/ ___\\__  \  /    \ /    \_/ __ \_  __ \
+#/    Y    \/ __ \|  |_> >  /        \  \___ / __ \|   |  \   |  \  ___/|  | \/
+#\____|__  (____  /   __/  /_______  /\___  >____  /___|  /___|  /\___  >__|
+#        \/     \/|__|             \/     \/     \/     \/     \/     \/
+
+# Check all items in each inventory
+scanInventories: true
+# Check content of chests for each loaded chunks
+scanChests: true
+# Prohibited items (see https://helpch.at/docs/1.8/org/bukkit/Material.html)
+scanItems:
+  - "ENDER_PORTAL_FRAME"
+  - "ENDER_PORTAL"
+  - "BEDROCK"
+  - "EGG"
+
+#.___         __________                  _____                                   __
+#|   |_____   \______   \ ___________    /  _  \   ____  ____  ____  __ __  _____/  |_
+#|   \____ \   |     ___// __ \_  __ \  /  /_\  \_/ ___\/ ___\/  _ \|  |  \/    \   __\
+#|   |  |_> >  |    |   \  ___/|  | \/ /    |    \  \__\  \__(  <_> )  |  /   |  \  |
+#|___|   __/   |____|    \___  >__|    \____|__  /\___  >___  >____/|____/|___|  /__|
+#    |__|                    \/                \/     \/    \/                 \/
+
+# List all concerned accounts by the ip per account module with this format : - "playerName;ipAddress"
+accountsWithIp:
+  - "player1;127.0.0.1"
+  - "player2;192.168.1.1"
+
+#   _____          __  .___________                                           .___
+#  /  _  \   _____/  |_|__\_   ___ \  ____   _____   _____ _____    ____    __| _/______
+# /  /_\  \ /    \   __\  /    \  \/ /  _ \ /     \ /     \\__  \  /    \  / __ |/  ___/
+#/    |    \   |  \  | |  \     \___(  <_> )  Y Y  \  Y Y  \/ __ \|   |  \/ /_/ |\___ \
+#\____|__  /___|  /__| |__|\______  /\____/|__|_|  /__|_|  (____  /___|  /\____ /____  >
+#        \/     \/                \/             \/      \/     \/     \/      \/    \/
+
+# List all concerned commands by the anti commands module with this format : - "luckperms "
+# All commands starting with each value will only be executable on the console
+antiCommandsList:
+  - "luckperm "
+  - "luckperms "
+  - "lpb "
+  - "lp "
+  - "luckperms:"
+  - "bukkit:"
+  - "minecraft:"
+  - "spigot:"
+  - "pex "
+  - "permissionsex "
+  - "permissionsex:"
+  - "deop "
+  - "op "
+  - "reload "
+  - "restart "
+  - "rl "
+  - "plugman:"
+  - "plugman unload nprotect"
+  - "plugman disable nprotect"
+  - "plugman reload nprotect"
+
+#   _____          __  .__  ________                                         .___
+#  /  _  \   _____/  |_|__|/  _____/_____    _____   ____   _____   ____   __| _/____
+# /  /_\  \ /    \   __\  /   \  ___\__  \  /     \_/ __ \ /     \ /  _ \ / __ |/ __ \
+#/    |    \   |  \  | |  \    \_\  \/ __ \|  Y Y  \  ___/|  Y Y  (  <_> ) /_/ \  ___/
+#\____|__  /___|  /__| |__|\______  (____  /__|_|  /\___  >__|_|  /\____/\____ |\___  >
+#        \/     \/                \/     \/      \/     \/      \/            \/    \/
+
+# If a player has a different gamemode than the one indicated, he will be automatically punished
+# GameModes: SURVIVAL / CREATIVE / SPECTATOR / ADVENTURE
+defaultGamemode: "SURVIVAL"
+
+# Command that will be executed to punish a player in an invalid gamemode
+gamemodePunishment: "ban %player% [nProtect] Your GameMode wasn't correct!"
+
+# Set default gamemode to player if he has an invalid gamemode
+restoreGamemode: true
+
+# List of players who can be in any gamemode
+bypassGamemodePlayers:
+  - "player1"
+  - "player2"
+
+#   _____          __  .__________ __________
+#  /  _  \   _____/  |_|__\_____  \\______   \
+# /  /_\  \ /    \   __\  |/   |   \|     ___/
+#/    |    \   |  \  | |  /    |    \    |
+#\____|__  /___|  /__| |__\_______  /____|
+#        \/     \/                \/
+
+# Command that will be executed to punish a player if he is OP
+# Example : opPunishment: "ban %player% [nProtect] AntiOP"
+# WARNING : If you decide to punish the OP player, the task will not run asynchronously!
+opPunishment: ""
+
+# Deop player if he is OP
+autoDeop: true
+
+# Check every X seconds if a player is OP on the server
+checkOpTimer: 2
+
+# List of players who can be OP
+bypassOpPlayers:
+  - "player1"
+  - "player2"
+
+#   _____          __  .____________                     .__              .__
+#  /  _  \   _____/  |_|__\______   \ ___________  _____ |__| ______ _____|__| ____   ____   ______
+# /  /_\  \ /    \   __\  ||     ___// __ \_  __ \/     \|  |/  ___//  ___/  |/  _ \ /    \ /  ___/
+#/    |    \   |  \  | |  ||    |   \  ___/|  | \/  Y Y  \  |\___ \ \___ \|  (  <_> )   |  \\___ \
+#\____|__  /___|  /__| |__||____|    \___  >__|  |__|_|  /__/____  >____  >__|\____/|___|  /____  >
+#        \/     \/                       \/            \/        \/     \/               \/     \/
+
+# Command that will be executed to punish a player in an invalid gamemode
+permissionPunishment: "ban %player% [nProtect] AntiPermissions"
+
+# List of permissions that the plugin must check
+permissionsDenied:
+  - "essentials.eco"
+  - "essentials.give"
+  - "essentials.gamemode"
+  - "essentials.gamemode.creative"
+  - "minecraft.command.deop"
+  - "minecraft.command.op"
+  - "luckperms.admin"
+  - "plugman.admin"
+  - "worldedit.*"
+  - "luckperms.*"
+  - "*"
+  - "op"
+
+# List of players who can be have all permissions
+bypassPermissionsPlayers:
+  - "player1"
+  - "player2"
+
+#._____________  __      __.__    .__  __         .__  .__          __
+#|   \______   \/  \    /  \  |__ |__|/  |_  ____ |  | |__| _______/  |_
+#|   ||     ___/\   \/\/   /  |  \|  \   __\/ __ \|  | |  |/  ___/\   __\
+#|   ||    |     \        /|   Y  \  ||  | \  ___/|  |_|  |\___ \  |  |
+#|___||____|      \__/\  / |___|  /__||__|  \___  >____/__/____  > |__|
+#                      \/       \/              \/             \/
+
+# Only IP addresses that players can connect to
+# Enter only the IPv4 addresses of your proxy (your BungeeCord)
+# If you are not using bungeecord or other proxy, please disable the "ipWhitelist" module above
+whitelistedIps:
+  - "12.34.56.78"
+  - "11.22.33.44"

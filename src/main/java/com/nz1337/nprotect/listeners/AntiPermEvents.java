@@ -16,7 +16,7 @@ public class AntiPermEvents implements Listener {
     private final ArrayList<String> permissions;
     private final Settings settings;
 
-    public AntiPermEvents(Protect protect) {
+    public AntiPermEvents(final Protect protect) {
         this.settings = protect.getSettings();
         this.players = new ArrayList<>();
         this.permissions = new ArrayList<>();
@@ -25,40 +25,39 @@ public class AntiPermEvents implements Listener {
     }
 
     @EventHandler
-    public void onUpdateGamemode(PlayerGameModeChangeEvent event) {
+    public void onUpdateGamemode(final PlayerGameModeChangeEvent event) {
         this.check(event.getPlayer());
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onJoin(final PlayerJoinEvent event) {
         this.check(event.getPlayer());
     }
 
     @EventHandler
-    public void onQuit(PlayerQuitEvent event) {
+    public void onQuit(final PlayerQuitEvent event) {
         this.check(event.getPlayer());
     }
 
     @EventHandler
-    public void onCommand(PlayerCommandPreprocessEvent event) {
+    public void onCommand(final PlayerCommandPreprocessEvent event) {
         this.check(event.getPlayer());
     }
 
     @EventHandler
-    public void onChat(AsyncPlayerChatEvent event) {
+    public void onChat(final AsyncPlayerChatEvent event) {
         this.check(event.getPlayer());
     }
 
-    private void check(Player player) {
-        if (!this.isBypasser(player) && this.hasDeniedPermission(player))
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), this.settings.getPermissionPunishment().replace("%player%", player.getName()));
+    private void check(final Player player) {
+        if (!this.isBypasser(player) && this.hasDeniedPermission(player)) Bukkit.dispatchCommand(Bukkit.getConsoleSender(), this.settings.getPermissionPunishment().replace("%player%", player.getName()));
     }
 
-    private boolean isBypasser(Player player) {
+    private boolean isBypasser(final Player player) {
         return this.players.contains(player.getName());
     }
 
-    private boolean hasDeniedPermission(Player player) {
+    private boolean hasDeniedPermission(final Player player) {
         return this.permissions.stream().anyMatch(player::hasPermission);
     }
 }

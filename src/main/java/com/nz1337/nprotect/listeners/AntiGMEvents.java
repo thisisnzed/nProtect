@@ -17,14 +17,14 @@ public class AntiGMEvents implements Listener {
     private final ArrayList<String> players;
     private final Settings settings;
 
-    public AntiGMEvents(Protect protect) {
+    public AntiGMEvents(final Protect protect) {
         this.settings = protect.getSettings();
         this.players = new ArrayList<>();
         this.players.addAll(this.settings.getBypassGamemodePlayers());
     }
 
     @EventHandler
-    public void onUpdateGamemode(PlayerGameModeChangeEvent event) {
+    public void onUpdateGamemode(final PlayerGameModeChangeEvent event) {
         final Player player = event.getPlayer();
         final GameMode gameMode = GameMode.valueOf(this.settings.getDefaultGamemode());
         if (!this.isBypasser(player) && !gameMode.equals(event.getNewGameMode())) {
@@ -34,7 +34,7 @@ public class AntiGMEvents implements Listener {
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onJoin(final PlayerJoinEvent event) {
         final Player player = event.getPlayer();
         final GameMode gameMode = GameMode.valueOf(this.settings.getDefaultGamemode());
         if (!this.isBypasser(player) && !gameMode.equals(player.getGameMode())) {
@@ -43,7 +43,7 @@ public class AntiGMEvents implements Listener {
         }
     }
 
-    private boolean isBypasser(Player player) {
+    private boolean isBypasser(final Player player) {
         return this.players.contains(player.getName());
     }
 }

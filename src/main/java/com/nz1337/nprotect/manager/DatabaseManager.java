@@ -12,14 +12,14 @@ public class DatabaseManager {
     private EasySQL easySQL;
     private Column column;
 
-    public DatabaseManager(Protect protect) {
+    public DatabaseManager(final Protect protect) {
         this.settings = protect.getSettings();
         this.initialize();
     }
 
     private void initialize() {
-        EasySQL easySQL = new EasySQL().setDatabase(this.settings.getDatabase()).setHost(this.settings.getHost()).setPassword(this.settings.getPassword()).setPort(this.settings.getPort()).setUser(this.settings.getUser());
-        Table table = new Table("players");
+        final EasySQL easySQL = new EasySQL().setDatabase(this.settings.getDatabase()).setHost(this.settings.getHost()).setPassword(this.settings.getPassword()).setPort(this.settings.getPort()).setUser(this.settings.getUser());
+        final Table table = new Table("players");
         table.addColumn("uuid", "uuid");
         table.addColumn("pin", "string");
         table.setPrimaryKey("uuid");

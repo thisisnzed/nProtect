@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public abstract class SubCommandManager {
 
-    public abstract void execute(CommandSender sender, String[] args) throws IOException;
+    public abstract void execute(final CommandSender sender, final String[] args) throws IOException;
 
     public abstract String name();
 

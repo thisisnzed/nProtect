@@ -14,7 +14,7 @@ public class TaskAntiOP extends BukkitRunnable {
     private final Settings settings;
     private final boolean async;
 
-    public TaskAntiOP(Protect protect, boolean async) {
+    public TaskAntiOP(final Protect protect, final boolean async) {
         this.settings = protect.getSettings();
         this.players = new ArrayList<>();
         this.async = async;
@@ -26,12 +26,13 @@ public class TaskAntiOP extends BukkitRunnable {
         Bukkit.getOperators().forEach(player -> {
             if (!this.isBypasser(player) && player.isOp()) {
                 if (this.settings.isAutoDeop()) player.setOp(false);
-                if(!this.async) Bukkit.dispatchCommand(Bukkit.getConsoleSender(), this.settings.getOpPunishment().replace("%player%", player.getName()));
+                if (!this.async)
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), this.settings.getOpPunishment().replace("%player%", player.getName()));
             }
         });
     }
 
-    private boolean isBypasser(OfflinePlayer player) {
+    private boolean isBypasser(final OfflinePlayer player) {
         return this.players.contains(player.getName());
     }
 }
