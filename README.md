@@ -14,7 +14,7 @@ You can reuse nProtect but make sure you comply with the [LICENSE](https://githu
     <dependency>
         <groupId>com.nz1337</groupId>
         <artifactId>nProtect</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </dependency>
 </dependencies>
 ```
