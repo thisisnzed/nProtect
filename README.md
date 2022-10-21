@@ -12,7 +12,7 @@ You can reuse nProtect but make sure you comply with the [LICENSE](https://githu
 ```xml
 <dependencies>
     <dependency>
-        <groupId>com.nz1337</groupId>
+        <groupId>com.thisisnzed</groupId>
         <artifactId>nProtect</artifactId>
         <version>1.0.0</version>
     </dependency>
