@@ -1,4 +1,4 @@
-main: com.nz1337.nprotect.launcher.Launcher
+main: com.thisisnzed.nprotect.launcher.Launcher
 name: nProtect
 version: 1.0.0
 author: Najtt
